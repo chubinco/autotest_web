@@ -16,7 +16,7 @@ class BasketPage(Base):
 
     product_name_basket = ""
     product_price_basket = ""
-    total_sum = ""
+    total__sum = ""
 
     # === Locators ===========================================================
     name_washer_basket = "//div[@class='title']//a"
@@ -69,9 +69,9 @@ class BasketPage(Base):
         return BasketPage.product_price_basket
 
     def check_total_sum(self):
-        BasketPage.total_sum = int(self.get_total_sum().text.replace(" ", ""))
-        logger.info(f"Общая сумма заказа: {BasketPage.total_sum}")
-        return BasketPage.total_sum
+        BasketPage.total__sum = int(self.get_total_sum().text.replace(" ", ""))
+        logger.info(f"Общая сумма заказа: {BasketPage.total__sum}")
+        return BasketPage.total__sum
 
     def check_name(self):
         assert BasketPage.product_name_basket == CardPage.product_name, f"Name product from catalog is not equal to name in basket"
@@ -82,7 +82,7 @@ class BasketPage(Base):
         logger.info(f"Price product from catalog is equal to price in basket")
 
     def check_order(self):
-        assert BasketPage.total_sum == CardPage.product_price, f"Sum of order no match with product price in catalog"
+        assert BasketPage.total__sum == CardPage.product_price, f"Sum of order no match with product price in catalog"
         logger.info(f"Sum of order match with product price in catalog")
 
     def input__name(self, name):
