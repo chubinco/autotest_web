@@ -1,5 +1,5 @@
 import time
-
+import allure
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -109,24 +109,25 @@ class BasketPage(Base):
     # === Methods ==============================================================
 
     def control_in_basket(self):
-        self.get_current_url()
-        self.check_basket_name_washer()
-        self.check_basket_price_washer()
-        self.check_total_sum()
-        self.check_name()
-        self.check_price()
-        self.check_order()
-        time.sleep(1)
-        self.input__name("Михалыч")
-        time.sleep(1)
-        self.input__phone("4212333451")
-        time.sleep(1)
-        self.input__email("michael@samoha.com")
-        time.sleep(1)
-        self.how_delivery_order()
-        time.sleep(1)
-        self.how_payment_order()
-        time.sleep(1)
-        self.get_screenshot()
-        time.sleep(3)
+        with allure.step("Control in basket"):
+            self.get_current_url()
+            self.check_basket_name_washer()
+            self.check_basket_price_washer()
+            self.check_total_sum()
+            self.check_name()
+            self.check_price()
+            self.check_order()
+            time.sleep(1)
+            self.input__name("Михалыч")
+            time.sleep(1)
+            self.input__phone("4212333451")
+            time.sleep(1)
+            self.input__email("michael@samoha.com")
+            time.sleep(1)
+            self.how_delivery_order()
+            time.sleep(1)
+            self.how_payment_order()
+            time.sleep(1)
+            self.get_screenshot()
+            time.sleep(3)
 

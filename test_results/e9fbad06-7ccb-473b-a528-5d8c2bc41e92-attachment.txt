@@ -1,0 +1,19 @@
+2024-02-22 18:04:37.835 | INFO     | base.base_class:get_current_url:19 - Current url: https://nk.ru/im/
+2024-02-22 18:04:37.955 | INFO     | pages.main_page:click_button_catalog:36 - Clicked button catalog
+2024-02-22 18:04:38.034 | INFO     | pages.main_page:click_link_home_tech:40 - Clicked link home tech
+2024-02-22 18:04:40.433 | INFO     | pages.main_page:click_link_washers:44 - Clicked link_washers
+2024-02-22 18:04:40.438 | INFO     | base.base_class:get_current_url:19 - Current url: https://nk.ru/im/r5/g56/
+2024-02-22 18:04:42.717 | INFO     | pages.washers_page:move_price_down:69 - Moved priceDown -> up
+2024-02-22 18:04:43.272 | INFO     | pages.washers_page:move_price_up:74 - Moved priceUp -> down
+2024-02-22 18:04:44.353 | INFO     | pages.washers_page:click_filter_manufacturer:78 - Clicked filter manufacturer
+2024-02-22 18:04:45.641 | INFO     | base.base_class:hover_element:44 - Hover element
+2024-02-22 18:04:45.939 | INFO     | base.base_class:hover_element:44 - Hover element
+2024-02-22 18:04:46.003 | INFO     | pages.washers_page:click_made_samsung:84 - Clicked manufacturer - Samsung
+2024-02-22 18:04:48.068 | INFO     | pages.washers_page:click_filter_type_loading:88 - Clicked filter type_loading
+2024-02-22 18:04:49.128 | INFO     | pages.washers_page:click_type_loading_front:92 - Clicked type_loading - front
+2024-02-22 18:04:50.441 | INFO     | base.base_class:hover_element:44 - Hover element
+2024-02-22 18:04:55.105 | INFO     | pages.washers_page:click_button_submit:97 - Clicked button submit
+2024-02-22 18:05:00.244 | INFO     | base.base_class:get_screenshot:33 - Screenshot ready 2024-02-22_18-05-00.png
+2024-02-22 18:05:07.304 | INFO     | pages.washers_page:click_card_washer:101 - Clicked card washing machine
+2024-02-22 18:05:08.309 | INFO     | base.base_class:get_current_url:19 - Current url: https://nk.ru/im/r5/g56/129248/
+2024-02-22 18:05:08.345 | INFO     | pages.card_page:check_name_washer:45 - Название: СтиральнаямашинаSamsungWW70J6210DW/LD

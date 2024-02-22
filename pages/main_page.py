@@ -1,5 +1,5 @@
 import time
-
+import allure
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -45,10 +45,11 @@ class MainPage(Base):
 
     # === Methods ==============================================================
     def select_product(self):
-        self.driver.get(self.url)
-        self.driver.maximize_window()
-        self.get_current_url()
-        self.click_button_catalog()
-        self.click_link_home_tech()
-        self.click_link_washers()
+        with allure.step("Select product"):
+            self.driver.get(self.url)
+            self.driver.maximize_window()
+            self.get_current_url()
+            self.click_button_catalog()
+            self.click_link_home_tech()
+            self.click_link_washers()
 

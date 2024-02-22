@@ -1,5 +1,5 @@
 import time
-
+import allure
 from selenium.webdriver import ActionChains, Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
@@ -110,20 +110,21 @@ class WashersPage(Base):
 
     # === Methods ==============================================================
     def select_washing_machine(self):
-        self.get_current_url()
-        self.move_price_down()
-        self.move_price_up()
-        time.sleep(1)
-        self.click_filter_manufacturer()
-        time.sleep(1)
-        self.click_made_samsung()
-        time.sleep(2)
-        self.click_filter_type_loading()
-        time.sleep(1)
-        self.click_type_loading_front()
-        time.sleep(1)
-        self.click_button_submit()
-        time.sleep(5)
-        self.get_screenshot()
-        self.click_card_washer()
-        time.sleep(1)
+        with allure.step("Select washing machine"):
+            self.get_current_url()
+            self.move_price_down()
+            self.move_price_up()
+            time.sleep(1)
+            self.click_filter_manufacturer()
+            time.sleep(1)
+            self.click_made_samsung()
+            time.sleep(2)
+            self.click_filter_type_loading()
+            time.sleep(1)
+            self.click_type_loading_front()
+            time.sleep(1)
+            self.click_button_submit()
+            time.sleep(5)
+            self.get_screenshot()
+            self.click_card_washer()
+            time.sleep(1)

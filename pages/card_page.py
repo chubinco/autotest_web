@@ -1,5 +1,5 @@
 import time
-
+import allure
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -17,9 +17,10 @@ class CardPage(Base):
     product_price = ""
 
     # === Locators ===========================================================
-    name_washer = "//h1[contains(@class, 'page-title product__title')]"
-    price_washer = "//div[@class='product__currentprice']"
-    button_to_cart = "//button[contains(@class, 'submit product__tocart')]"
+    name_washer = "//h2[@class='product__name']"
+    price_washer = "//span[@class='product__cost-val']"
+    button_to_cart = "//div[contains(@class, 'product__button product__button_inbag')]"
+    modal_button_order = "//div[@class='goods-info']//following-sibling::a[1]"
     button_cart = "//button[@class='toolbar__cart']"
 
     # === Getters =============================================================
@@ -35,6 +36,9 @@ class CardPage(Base):
     def get_button_cart(self):
         return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.button_cart)))
 
+    def get_modal_button_order(self):
+        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.modal_button_order)))
+
     # === Actions ==============================================================
     def check_name_washer(self):
         CardPage.product_name = self.get_name_washer().text.replace(" ", "")
@@ -42,7 +46,9 @@ class CardPage(Base):
         return CardPage.product_name
 
     def check_price_washer(self):
-        CardPage.product_price = int(self.get_price_washer().text.replace(" ",""))
+        price = self.get_price_washer().text.split()
+        logger.info(f"{price}")
+        CardPage.product_price = int("".join([price[0], price[1]]))
         logger.info(f"Цена: {CardPage.product_price}")
         return CardPage.product_price
 
@@ -52,14 +58,19 @@ class CardPage(Base):
 
     def click_button_cart(self):
         self.get_button_cart().click()
-        logger.info("Clicked button_cart. Go to basket page")    
+        logger.info("Clicked button_cart. Go to basket page")
+
+    def click_modal_button_order(self):
+        self.get_modal_button_order().click()
+        logger.info("Clicked modal button order. Go to basket page")
 
     # === Methods ==============================================================
     def put_in_basket(self):
-        self.get_current_url()
-        self.check_name_washer()
-        self.check_price_washer()
-        self.get_screenshot()
-        self.click_button_to_cart()
-        time.sleep(2)
-        self.click_button_cart()
+        with allure.step("Put in basket"):
+            self.get_current_url()
+            self.check_name_washer()
+            self.check_price_washer()
+            self.get_screenshot()
+            self.click_button_to_cart()
+            time.sleep(2)
+            self.click_modal_button_order()
