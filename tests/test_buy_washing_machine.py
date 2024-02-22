@@ -5,6 +5,8 @@ import allure
 import pytest
 from loguru import logger
 from selenium import webdriver
+from selenium.webdriver.chrome.service import Service as ChromeService
+from webdriver_manager.chrome import ChromeDriverManager
 
 from pages.basket_page import BasketPage
 from pages.card_page import CardPage
@@ -12,9 +14,10 @@ from pages.main_page import MainPage
 from pages.washers_page import WashersPage
 
 
-@allure.description("Test buy mashing machine")
+# @allure.description("Test buy mashing machine")
 def test_buy_mashing_machine():
-    driver = webdriver.Chrome()
+    driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
+    # driver = webdriver.Chrome()
     root = Path(__file__).resolve().parent.parent
     time_now = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
     logger.add(root.joinpath('logs', f'file_{time_now}.log'), rotation="1 week")

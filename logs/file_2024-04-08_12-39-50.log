@@ -1,0 +1,18 @@
+2024-04-08 12:39:57.473 | INFO     | base.base_class:get_current_url:18 - Current url: https://nk.ru/im/
+2024-04-08 12:39:57.601 | INFO     | pages.main_page:click_button_catalog:39 - Clicked button catalog
+2024-04-08 12:39:57.688 | INFO     | pages.main_page:click_link_home_tech:43 - Clicked link home tech
+2024-04-08 12:40:01.484 | INFO     | pages.main_page:click_link_washers:47 - Clicked link_washers
+2024-04-08 12:40:01.503 | INFO     | base.base_class:get_current_url:18 - Current url: https://nk.ru/im/r5/g56/
+2024-04-08 12:40:02.078 | INFO     | pages.washers_page:move_price_down:69 - Moved priceDown -> up
+2024-04-08 12:40:02.674 | INFO     | pages.washers_page:move_price_up:74 - Moved priceUp -> down
+2024-04-08 12:40:03.742 | INFO     | pages.washers_page:click_filter_manufacturer:78 - Clicked filter manufacturer
+2024-04-08 12:40:05.038 | INFO     | base.base_class:hover_element:48 - The mouse cursor over the selected element
+2024-04-08 12:40:05.336 | INFO     | base.base_class:hover_element:48 - The mouse cursor over the selected element
+2024-04-08 12:40:05.404 | INFO     | pages.washers_page:click_made_samsung:84 - Clicked manufacturer - Samsung
+2024-04-08 12:40:07.464 | INFO     | pages.washers_page:click_filter_type_loading:88 - Clicked filter type_loading
+2024-04-08 12:40:08.527 | INFO     | pages.washers_page:click_type_loading_front:92 - Clicked type_loading - front
+2024-04-08 12:40:09.851 | INFO     | base.base_class:hover_element:48 - The mouse cursor over the selected element
+2024-04-08 12:40:15.057 | INFO     | pages.washers_page:click_button_submit:97 - Clicked button submit
+2024-04-08 12:40:20.181 | INFO     | base.base_class:get_screenshot:37 - Screenshot ready 2024-04-08_12-40-20.png
+2024-04-08 12:40:22.767 | INFO     | pages.washers_page:click_card_washer:101 - Clicked card washing machine
+2024-04-08 12:40:24.127 | INFO     | base.base_class:get_current_url:18 - Current url: https://nk.ru/im/r5/g56/129367/
