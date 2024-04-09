@@ -19,43 +19,43 @@ class BasketPage(Base):
     total__sum = ""
 
     # === Locators ===========================================================
-    name_washer_basket = "//div[@class='title']//a"
-    price_washer_basket = "//span[@class='cost_sum']//b"
-    total_sum = "//span[@id='im_bag_total']"
-    input_name = "//input[@name='name']"
-    input_phone = "//input[@name='phone']"
-    input_email = "//input[@name='email']"
-    radio_button_shop = "//label[@for='radiobut_0_2']"
-    radio_button_payment = "//label[@for='im_bag_card']"
-    button_send_order = "//button[contains(@class, 'submit btcart__submit')]"
+    name_washer_basket = (By.XPATH, "//div[@class='title']//a")
+    price_washer_basket = (By.XPATH, "//span[@class='cost_sum']//b")
+    total_sum = (By.XPATH, "//span[@id='im_bag_total']")
+    input_name = (By.XPATH, "//input[@name='name']")
+    input_phone = (By.XPATH, "//input[@name='phone']")
+    input_email = (By.XPATH, "//input[@name='email']")
+    radio_button_shop = (By.XPATH, "//label[@for='radiobut_0_2']")
+    radio_button_payment = (By.XPATH, "//label[@for='im_bag_card']")
+    button_send_order = (By.XPATH, "//button[contains(@class, 'submit btcart__submit')]")
 
     # === Getters =============================================================
     def get_basket_name_washer(self):
-        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.name_washer_basket)))
+        return self.element_clickable(self.name_washer_basket, 30)
 
     def get_basket_price_washer(self):
-        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.price_washer_basket)))
+        return self.element_clickable(self.price_washer_basket, 30)
 
     def get_total_sum(self):
-        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.total_sum)))
+        return self.element_clickable(self.total_sum, 30)
 
     def get_input_name(self):
-        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.input_name)))
+        return self.element_clickable(self.input_name, 30)
 
     def get_input_phone(self):
-        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.input_phone)))
+        return self.element_clickable(self.input_phone, 30)
 
     def get_input_email(self):
-        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.input_email)))
+        return self.element_clickable(self.input_email, 30)
 
     def get_radio_button_shop(self):
-        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.radio_button_shop)))
+        return self.element_clickable(self.radio_button_shop, 30)
 
     def get_radio_button_payment(self):
-        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.radio_button_payment)))
+        return self.element_clickable(self.radio_button_payment, 30)
 
     def get_button_send_order(self):
-        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.button_send_order)))
+        return self.element_clickable(self.button_send_order, 30)
 
     # === Actions ==============================================================
     def check_basket_name_washer(self):
@@ -74,15 +74,18 @@ class BasketPage(Base):
         return BasketPage.total__sum
 
     def check_name(self):
-        assert BasketPage.product_name_basket == CardPage.product_name, f"Name product from catalog is not equal to name in basket"
+        assert BasketPage.product_name_basket == CardPage.product_name, \
+            f"Name product from catalog is not equal to name in basket"
         logger.info(f"Name product from catalog is equal to name in basket")
 
     def check_price(self):
-        assert BasketPage.product_price_basket == CardPage.product_price, f"Price product from catalog is not equal to price in basket "
+        assert BasketPage.product_price_basket == CardPage.product_price, \
+            f"Price product from catalog is not equal to price in basket "
         logger.info(f"Price product from catalog is equal to price in basket")
 
     def check_order(self):
-        assert BasketPage.total__sum == CardPage.product_price, f"Sum of order no match with product price in catalog"
+        assert BasketPage.total__sum == CardPage.product_price, \
+            f"Sum of order no match with product price in catalog"
         logger.info(f"Sum of order match with product price in catalog")
 
     def input__name(self, name):
@@ -109,25 +112,25 @@ class BasketPage(Base):
     # === Methods ==============================================================
 
     def control_in_basket(self):
-        with allure.step("Control in basket"):
-            self.get_current_url()
-            self.check_basket_name_washer()
-            self.check_basket_price_washer()
-            self.check_total_sum()
-            self.check_name()
-            self.check_price()
-            self.check_order()
-            time.sleep(1)
-            self.input__name("Михалыч")
-            time.sleep(2)
-            self.input__phone("4212333451")
-            time.sleep(2)
-            self.input__email("michael@samoha.com")
-            time.sleep(2)
-            self.how_delivery_order()
-            time.sleep(1)
-            self.how_payment_order()
-            time.sleep(1)
-            self.get_screenshot()
-            time.sleep(3)
+        # with allure.step("Control in basket"):
+        self.get_current_url()
+        self.check_basket_name_washer()
+        self.check_basket_price_washer()
+        self.check_total_sum()
+        self.check_name()
+        self.check_price()
+        self.check_order()
+        time.sleep(1)
+        self.input__name("Михалыч")
+        time.sleep(1)
+        self.input__phone("4212333451")
+        time.sleep(1)
+        self.input__email("michael@samoha.com")
+        time.sleep(1)
+        self.how_delivery_order()
+        time.sleep(1)
+        self.how_payment_order()
+        time.sleep(1)
+        self.get_screenshot()
+        time.sleep(1)
 

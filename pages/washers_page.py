@@ -2,8 +2,6 @@ import time
 import allure
 from selenium.webdriver import ActionChains, Keys
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
 from loguru import logger
 
 from base.base_class import Base
@@ -15,52 +13,52 @@ class WashersPage(Base):
         self.driver = driver
 
     # === Locators ===========================================================
-    price_down = "(//div[contains(@class, 'filter__slider-bar')])[1]/span[1]"
-    price_up = "(//div[contains(@class, 'filter__slider-bar')])[1]/span[2]"
-    manufacturer = "(//div[contains(@class, 'filter__section filter__section--collapse')])[1]"
-    made_samsung = "//input[@name='f[b][5]']//following-sibling::span"
-    made_centlek = "//input[@name='f[b][804]']"
-    type_loading = "(//div[contains(@class, 'filter__section filter__section--collapse')])[2]"
-    loading_front = "//input[@name='f[123][фронтальная]']//following-sibling::span"
-    button_submit = "//button[contains(@class, 'submit filter__submit')]"
-    card_washer = "(//article[@class='product-card'])[1]//a"
+    price_down = (By.XPATH, "(//div[contains(@class, 'filter__slider-bar')])[1]/span[1]")
+    price_up = (By.XPATH, "(//div[contains(@class, 'filter__slider-bar')])[1]/span[2]")
+    manufacturer = (By.XPATH, "(//div[contains(@class, 'filter__section filter__section--collapse')])[1]")
+    made_samsung = (By.XPATH, "//input[@name='f[b][5]']//following-sibling::span")
+    made_centlek = (By.XPATH, "//input[@name='f[b][804]']")
+    type_loading = (By.XPATH, "(//div[contains(@class, 'filter__section filter__section--collapse')])[2]")
+    loading_front = (By.XPATH, "//input[@name='f[123][фронтальная]']//following-sibling::span")
+    button_submit = (By.XPATH, "//button[contains(@class, 'submit filter__submit')]")
+    card_washer = (By.XPATH, "(//article[@class='product-card'])[1]//a")
 
-    button_add_to_cart = "(//button[@data-id='129367'])[2]"
-    button_cart = "//button[@class='toolbar__cart']"
+    button_add_to_cart = (By.XPATH, "(//button[@data-id='129367'])[2]")
+    button_cart = (By.XPATH, "//button[@class='toolbar__cart']")
 
     # === Getters =============================================================
     def get_price_down(self):
-        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.price_down)))
+        return self.element_clickable(self.price_down, 30)
 
     def get_price_up(self):
-        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.price_up)))
+        return self.element_clickable(self.price_up, 30)
 
     def get_manufacturer(self):
-        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.manufacturer)))
+        return self.element_clickable(self.manufacturer, 30)
 
     def get_made_samsung(self):
-        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.made_samsung)))
+        return self.element_clickable(self.made_samsung, 30)
 
     def get_made_centlek(self):
-        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.made_centlek)))
+        return self.element_clickable(self.made_centlek, 30)
 
     def get_type_loading(self):
-        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.type_loading)))
+        return self.element_clickable(self.type_loading, 30)
 
     def get_loading_front(self):
-        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.loading_front)))
+        return self.element_clickable(self.loading_front, 30)
 
     def get_button_submit(self):
-        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.button_submit)))
+        return self.element_clickable(self.button_submit, 30)
 
     def get_button_add_to_cart(self):
-        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.button_add_to_cart)))
+        return self.element_clickable(self.button_add_to_cart, 30)
 
     def get_button_cart(self):
-        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.button_cart)))
+        return self.element_clickable(self.button_cart, 30)
 
     def get_card_washer(self):
-        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.card_washer)))
+        return self.element_clickable(self.card_washer, 30)
 
     # === Actions ==============================================================
     def move_price_down(self):
@@ -110,21 +108,21 @@ class WashersPage(Base):
 
     # === Methods ==============================================================
     def select_washing_machine(self):
-        with allure.step("Select washing machine"):
-            self.get_current_url()
-            self.move_price_down()
-            self.move_price_up()
-            time.sleep(1)
-            self.click_filter_manufacturer()
-            time.sleep(1)
-            self.click_made_samsung()
-            time.sleep(2)
-            self.click_filter_type_loading()
-            time.sleep(1)
-            self.click_type_loading_front()
-            time.sleep(1)
-            self.click_button_submit()
-            time.sleep(5)
-            self.get_screenshot()
-            self.click_card_washer()
-            time.sleep(1)
+        # with allure.step("Select washing machine"):
+        self.get_current_url()
+        self.move_price_down()
+        self.move_price_up()
+        time.sleep(1)
+        self.click_filter_manufacturer()
+        time.sleep(1)
+        self.click_made_samsung()
+        time.sleep(1)
+        self.click_filter_type_loading()
+        time.sleep(1)
+        self.click_type_loading_front()
+        time.sleep(1)
+        self.click_button_submit()
+        time.sleep(1)
+        self.get_screenshot()
+        self.click_card_washer()
+        time.sleep(1)

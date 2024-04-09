@@ -1,8 +1,6 @@
 import time
 import allure
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
 from loguru import logger
 
 from base.base_class import Base
@@ -17,27 +15,27 @@ class CardPage(Base):
     product_price = ""
 
     # === Locators ===========================================================
-    name_washer = "//h2[@class='product__name']"
-    price_washer = "//span[@class='product__cost-val']"
-    button_to_cart = "//div[contains(@class, 'product__button product__button_inbag')]"
-    modal_button_order = "//div[@class='goods-info']//following-sibling::a[1]"
-    button_cart = "//button[@class='toolbar__cart']"
+    name_washer = (By.XPATH, "//h1[contains(@class, 'page-title product__title')]")
+    price_washer = (By.XPATH, "//div[@class='product__currentprice']")
+    button_to_cart = (By.XPATH, "//button[contains(@class, 'submit product__tocart')]")
+    modal_button_order = (By.XPATH, "//div[@class='goods-info']//following-sibling::a[1]")
+    button_cart = (By.XPATH, "//button[@class='toolbar__cart']")
 
     # === Getters =============================================================
     def get_name_washer(self):
-        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.name_washer)))
+        return self.element_clickable(self.name_washer, 30)
 
     def get_price_washer(self):
-        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.price_washer)))
+        return self.element_clickable(self.price_washer, 30)
 
     def get_button_to_cart(self):
-        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.button_to_cart)))
+        return self.element_clickable(self.button_to_cart, 30)
 
     def get_button_cart(self):
-        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.button_cart)))
+        return self.element_clickable(self.button_cart, 30)
 
     def get_modal_button_order(self):
-        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.modal_button_order)))
+        return self.element_clickable(self.modal_button_order, 30)
 
     # === Actions ==============================================================
     def check_name_washer(self):
@@ -66,11 +64,11 @@ class CardPage(Base):
 
     # === Methods ==============================================================
     def put_in_basket(self):
-        with allure.step("Put in basket"):
-            self.get_current_url()
-            self.check_name_washer()
-            self.check_price_washer()
-            self.get_screenshot()
-            self.click_button_to_cart()
-            time.sleep(2)
-            self.click_modal_button_order()
+        # with allure.step("Put in basket"):
+        self.get_current_url()
+        self.check_name_washer()
+        self.check_price_washer()
+        self.get_screenshot()
+        self.click_button_to_cart()
+        time.sleep(1)
+        self.click_button_cart()

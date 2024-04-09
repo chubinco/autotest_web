@@ -1,0 +1,38 @@
+2024-04-08 21:57:23.139 | INFO     | base.base_class:get_current_url:19 - Current url: https://nk.ru/im/
+2024-04-08 21:57:23.275 | INFO     | pages.main_page:click_button_catalog:37 - Clicked button catalog
+2024-04-08 21:57:23.358 | INFO     | pages.main_page:click_link_home_tech:41 - Clicked link home tech
+2024-04-08 21:57:25.608 | INFO     | pages.main_page:click_link_washers:45 - Clicked link_washers
+2024-04-08 21:57:25.610 | INFO     | base.base_class:get_current_url:19 - Current url: https://nk.ru/im/r5/g56/
+2024-04-08 21:57:28.232 | INFO     | pages.washers_page:move_price_down:69 - Moved priceDown -> up
+2024-04-08 21:57:28.828 | INFO     | pages.washers_page:move_price_up:74 - Moved priceUp -> down
+2024-04-08 21:57:29.895 | INFO     | pages.washers_page:click_filter_manufacturer:78 - Clicked filter manufacturer
+2024-04-08 21:57:31.193 | INFO     | base.base_class:hover_element:49 - The mouse cursor over the selected element
+2024-04-08 21:57:31.494 | INFO     | base.base_class:hover_element:49 - The mouse cursor over the selected element
+2024-04-08 21:57:31.558 | INFO     | pages.washers_page:click_made_samsung:84 - Clicked manufacturer - Samsung
+2024-04-08 21:57:33.631 | INFO     | pages.washers_page:click_filter_type_loading:88 - Clicked filter type_loading
+2024-04-08 21:57:34.699 | INFO     | pages.washers_page:click_type_loading_front:92 - Clicked type_loading - front
+2024-04-08 21:57:36.009 | INFO     | base.base_class:hover_element:49 - The mouse cursor over the selected element
+2024-04-08 21:57:41.421 | INFO     | pages.washers_page:click_button_submit:97 - Clicked button submit
+2024-04-08 21:57:46.555 | INFO     | base.base_class:get_screenshot:38 - Screenshot ready 2024-04-08_21-57-46.png
+2024-04-08 21:57:50.987 | INFO     | pages.washers_page:click_card_washer:101 - Clicked card washing machine
+2024-04-08 21:57:51.989 | INFO     | base.base_class:get_current_url:19 - Current url: https://nk.ru/im/r5/g56/129367/
+2024-04-08 21:57:52.020 | INFO     | pages.card_page:check_name_washer:45 - Название: СтиральнаямашинаSamsungWW60J32G0PS/LD
+2024-04-08 21:57:52.051 | INFO     | pages.card_page:check_price_washer:50 - ['44', '985']
+2024-04-08 21:57:52.051 | INFO     | pages.card_page:check_price_washer:52 - Цена: 44985
+2024-04-08 21:57:52.188 | INFO     | base.base_class:get_screenshot:38 - Screenshot ready 2024-04-08_21-57-52.png
+2024-04-08 21:57:52.254 | INFO     | pages.card_page:click_button_to_cart:57 - Clicked button to cart
+2024-04-08 21:57:55.893 | INFO     | pages.card_page:click_button_cart:61 - Clicked button_cart. Go to basket page
+2024-04-08 21:57:55.910 | INFO     | base.base_class:get_current_url:19 - Current url: https://nk.ru/im/cart/
+2024-04-08 21:57:55.950 | INFO     | pages.basket_page:check_basket_name_washer:63 - Название: СтиральнаямашинаSamsungWW60J32G0PS/LD
+2024-04-08 21:57:55.975 | INFO     | pages.basket_page:check_basket_price_washer:68 - Цена: 44985
+2024-04-08 21:57:56.006 | INFO     | pages.basket_page:check_total_sum:73 - Общая сумма заказа: 44985
+2024-04-08 21:57:56.006 | INFO     | pages.basket_page:check_name:79 - Name product from catalog is equal to name in basket
+2024-04-08 21:57:56.006 | INFO     | pages.basket_page:check_price:84 - Price product from catalog is equal to price in basket
+2024-04-08 21:57:56.006 | INFO     | pages.basket_page:check_order:89 - Sum of order match with product price in catalog
+2024-04-08 21:57:57.996 | INFO     | pages.basket_page:input__name:93 - Input first name is Михалыч
+2024-04-08 21:58:00.085 | INFO     | pages.basket_page:input__phone:97 - Input phone is 4212333451
+2024-04-08 21:58:02.172 | INFO     | pages.basket_page:input__email:101 - Input email is michael@samoha.com
+2024-04-08 21:58:04.236 | INFO     | pages.basket_page:how_delivery_order:105 - Method delivery order is shop
+2024-04-08 21:58:05.527 | INFO     | base.base_class:hover_element:49 - The mouse cursor over the selected element
+2024-04-08 21:58:05.582 | INFO     | pages.basket_page:how_payment_order:110 - Method payment order by bank card
+2024-04-08 21:58:06.690 | INFO     | base.base_class:get_screenshot:38 - Screenshot ready 2024-04-08_21-58-06.png
